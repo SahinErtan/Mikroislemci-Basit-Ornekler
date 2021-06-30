@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Lab3.hex
+Processor_Text=PIC18F45K22
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=Lab3.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\ASUS\Desktop\Lab3 Ödev\Lab3]
+Type=4
+[mru-list]
+1=Lab3.c
+[Opened Files]
+1=Lab3.c
+2=Lab3.h
+3=
+[Lab3.c]
+Type=4
+[Units]
+Count=1
+1=Lab3 (main)

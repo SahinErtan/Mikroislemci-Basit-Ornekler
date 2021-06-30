@@ -1,0 +1,216 @@
+CCS PCH C Compiler, Version 5.015, 5967               18-Kas-20 19:32
+
+               Filename:   C:\Users\ASUS\Desktop\Mikro\main.lst
+
+               ROM used:   250 bytes (1%)
+                           Largest free fragment is 32518
+               RAM used:   5 (0%) at main() level
+                           7 (0%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002A
+.................... #include <main.h> 
+.................... #include <18F45K22.h> 
+.................... //////////// Standard Header file for the PIC18F45K22 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F45K22 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
+....................  
+.................... #use delay(crystal=8000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  07
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    0028
+000E:  MOVLW  02
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  97
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  DECFSZ FEF,F
+0026:  BRA    000E
+0028:  RETURN 0
+....................  
+....................  
+....................  
+.................... void main() 
+002A:  CLRF   FF8
+002C:  BCF    FD0.7
+002E:  MOVF   FC1,W
+0030:  ANDLW  F0
+0032:  MOVWF  FC1
+0034:  MOVLW  00
+0036:  MOVLB  F
+0038:  MOVWF  x38
+003A:  MOVWF  x3C
+003C:  MOVWF  x39
+003E:  MOVWF  x3A
+0040:  MOVWF  x3B
+0042:  MOVLB  1
+0044:  CLRF   x88
+0046:  CLRF   F77
+0048:  CLRF   F78
+004A:  CLRF   F79
+.................... { 
+.................... set_tris_a(0x01); 
+004C:  MOVLW  01
+004E:  MOVWF  F92
+.................... set_tris_d(0x00); 
+0050:  MOVLW  00
+0052:  MOVWF  F95
+.................... output_d(0x00); 
+0054:  CLRF   F95
+0056:  CLRF   F8C
+....................  
+.................... int butonsay=0; 
+0058:  CLRF   05
+....................  
+....................  
+....................    while(TRUE) 
+....................    { 
+....................       if(input(pin_a0)) 
+005A:  BSF    F92.0
+005C:  BTFSS  F80.0
+005E:  BRA    00F6
+....................       { 
+....................       butonsay++; 
+0060:  INCF   05,F
+....................         
+....................        if(butonsay==1) 
+0062:  DECFSZ 05,W
+0064:  BRA    0084
+....................        { 
+....................        output_d(0x0F); //0000 1111  
+0066:  CLRF   F95
+0068:  MOVLW  0F
+006A:  MOVWF  F8C
+....................        delay_ms(2000); 
+006C:  MOVLW  08
+006E:  MOVWF  06
+0070:  MOVLW  FA
+0072:  MOVWF  07
+0074:  MOVLB  0
+0076:  RCALL  0004
+0078:  DECFSZ 06,F
+007A:  BRA    007E
+007C:  BRA    0082
+007E:  MOVLB  1
+0080:  BRA    0070
+0082:  MOVLB  1
+....................        } 
+....................        if(butonsay==2) 
+0084:  MOVF   05,W
+0086:  SUBLW  02
+0088:  BNZ   00A8
+....................        { 
+....................        output_d(0x05); //0000 0101 
+008A:  CLRF   F95
+008C:  MOVLW  05
+008E:  MOVWF  F8C
+....................        delay_ms(3000); 
+0090:  MOVLW  0C
+0092:  MOVWF  06
+0094:  MOVLW  FA
+0096:  MOVWF  07
+0098:  MOVLB  0
+009A:  RCALL  0004
+009C:  DECFSZ 06,F
+009E:  BRA    00A2
+00A0:  BRA    00A6
+00A2:  MOVLB  1
+00A4:  BRA    0094
+00A6:  MOVLB  1
+....................        } 
+....................        if(butonsay==3) 
+00A8:  MOVF   05,W
+00AA:  SUBLW  03
+00AC:  BNZ   00CC
+....................        { 
+....................        output_d(0x0A); //0000 1010 
+00AE:  CLRF   F95
+00B0:  MOVLW  0A
+00B2:  MOVWF  F8C
+....................        delay_ms(5000); 
+00B4:  MOVLW  14
+00B6:  MOVWF  06
+00B8:  MOVLW  FA
+00BA:  MOVWF  07
+00BC:  MOVLB  0
+00BE:  RCALL  0004
+00C0:  DECFSZ 06,F
+00C2:  BRA    00C6
+00C4:  BRA    00CA
+00C6:  MOVLB  1
+00C8:  BRA    00B8
+00CA:  MOVLB  1
+....................        } 
+....................        if(butonsay==4) 
+00CC:  MOVF   05,W
+00CE:  SUBLW  04
+00D0:  BNZ   00F2
+....................        { 
+....................        output_d(0x09); //0000 1001 
+00D2:  CLRF   F95
+00D4:  MOVLW  09
+00D6:  MOVWF  F8C
+....................        delay_ms(2000); 
+00D8:  MOVLW  08
+00DA:  MOVWF  06
+00DC:  MOVLW  FA
+00DE:  MOVWF  07
+00E0:  MOVLB  0
+00E2:  RCALL  0004
+00E4:  DECFSZ 06,F
+00E6:  BRA    00EA
+00E8:  BRA    00EE
+00EA:  MOVLB  1
+00EC:  BRA    00DC
+....................        butonsay=0; 
+00EE:  CLRF   05
+00F0:  MOVLB  1
+....................        } 
+....................        output_d(0x00); 
+00F2:  CLRF   F95
+00F4:  CLRF   F8C
+....................        } 
+00F6:  BRA    005A
+....................         
+....................       } 
+....................       
+....................  
+.................... } 
+00F8:  SLEEP 
+
+Configuration Fuses:
+   Word  1: E300   HSM NOPLLEN PRIMARY_ON FCMEN IESO
+   Word  2: 1C18   PUT NOBROWNOUT BORV19 NOWDT WDT128
+   Word  3: BF00   CCP2C1 PBADEN CCP3B5 HFOFST TIMER3C0 CCP2D2 MCLR
+   Word  4: 0081   STVREN NOLVP NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Mikro_Lab4.hex
+Processor_Text=PIC18F45K22
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=Mikro_Lab4.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\ASUS\Desktop\Mikro_Lab4]
+Type=4
+[mru-list]
+1=Mikro_Lab4.c
+[Opened Files]
+1=Mikro_Lab4.c
+2=Mikro_Lab4.h
+3=
+[Mikro_Lab4.c]
+Type=4
+[Units]
+Count=1
+1=Mikro_Lab4 (main)

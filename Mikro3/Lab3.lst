@@ -1,0 +1,215 @@
+CCS PCH C Compiler, Version 5.015, 5967               26-Kas-20 22:00
+
+               Filename:   C:\Users\ASUS\Desktop\Lab3 Ödev\Lab3.lst
+
+               ROM used:   318 bytes (1%)
+                           Largest free fragment is 32446
+               RAM used:   24 (2%) at main() level
+                           25 (2%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 31
+
+*
+0000:  GOTO   00CA
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  00,0E
+003C:  MOVFF  01,0F
+0040:  MOVFF  02,10
+0044:  MOVFF  03,11
+0048:  BTFSS  FF2.4
+004A:  GOTO   0054
+004E:  BTFSC  FF2.1
+0050:  GOTO   0096
+0054:  MOVFF  0E,00
+0058:  MOVFF  0F,01
+005C:  MOVFF  10,02
+0060:  MOVFF  11,03
+0064:  MOVFF  0C,FE9
+0068:  MOVFF  07,FEA
+006C:  BSF    07.7
+006E:  MOVFF  08,FE1
+0072:  MOVFF  09,FE2
+0076:  MOVFF  0A,FD9
+007A:  MOVFF  0B,FDA
+007E:  MOVFF  12,FF3
+0082:  MOVFF  13,FF4
+0086:  MOVFF  14,FFA
+008A:  MOVF   04,W
+008C:  MOVFF  06,FE0
+0090:  MOVFF  05,FD8
+0094:  RETFIE 0
+.................... #include <Lab3.h> 
+.................... #include <18F45K22.h> 
+.................... //////////// Standard Header file for the PIC18F45K22 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F45K22 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale 
+.................... #FUSES NOBROWNOUT               //No brownout reset 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NOXINST                  //Extended set extension and Indexed Addressing mode disabled (Legacy mode) 
+....................  
+.................... #use delay(crystal=4000000) 
+*
+00A2:  CLRF   FEA
+00A4:  MOVLW  18
+00A6:  MOVWF  FE9
+00A8:  MOVF   FEF,W
+00AA:  BZ    00C8
+00AC:  MOVLW  01
+00AE:  MOVWF  01
+00B0:  CLRF   00
+00B2:  DECFSZ 00,F
+00B4:  BRA    00B2
+00B6:  DECFSZ 01,F
+00B8:  BRA    00B0
+00BA:  MOVLW  4A
+00BC:  MOVWF  00
+00BE:  DECFSZ 00,F
+00C0:  BRA    00BE
+00C2:  BRA    00C4
+00C4:  DECFSZ FEF,F
+00C6:  BRA    00AC
+00C8:  RETURN 0
+....................  
+....................  
+....................  
+.................... int butonSay=0; 
+....................  
+.................... #int_ext 
+.................... void hariciKesme()  //Harici Kesmenin yapýlacaðý fonksiyon 
+.................... { 
+.................... output_c(0x00); 
+*
+0096:  CLRF   F94
+0098:  CLRF   F8B
+.................... butonSay=0; 
+009A:  CLRF   16
+009C:  BCF    FF2.1
+009E:  GOTO   0054
+.................... } 
+....................  
+.................... void main() 
+*
+00CA:  CLRF   FF8
+00CC:  BCF    FD0.7
+00CE:  BSF    07.7
+00D0:  CLRF   16
+00D2:  MOVF   FC1,W
+00D4:  ANDLW  F0
+00D6:  MOVWF  FC1
+00D8:  MOVLW  00
+00DA:  MOVLB  F
+00DC:  MOVWF  x38
+00DE:  MOVWF  x3C
+00E0:  MOVWF  x39
+00E2:  MOVWF  x3A
+00E4:  MOVWF  x3B
+00E6:  MOVLB  1
+00E8:  CLRF   x88
+00EA:  CLRF   F77
+00EC:  CLRF   F78
+00EE:  CLRF   F79
+.................... { 
+.................... set_tris_b(0x02); 
+00F0:  MOVLW  02
+00F2:  MOVWF  F93
+.................... set_tris_d(0xFF); 
+00F4:  MOVLW  FF
+00F6:  MOVWF  F95
+....................  
+.................... output_b(0x00); 
+00F8:  CLRF   F93
+00FA:  CLRF   F8A
+.................... output_d(0x00); 
+00FC:  CLRF   F95
+00FE:  CLRF   F8C
+....................  
+.................... enable_interrupts(int_ext); //int_ext kesmesini aktifleþtir 
+0100:  BSF    FF2.4
+.................... enable_interrupts(GLOBAL);  //Tüm kesmeleri aktifleþtir 
+0102:  MOVLW  C0
+0104:  IORWF  FF2,F
+....................  
+....................    while(TRUE) 
+....................    { 
+....................    if(input(pin_b1)) 
+0106:  BSF    F93.1
+0108:  BTFSS  F81.1
+010A:  BRA    013E
+....................    { 
+....................    delay_ms(20); 
+010C:  MOVLW  14
+010E:  MOVWF  18
+0110:  MOVLB  0
+0112:  RCALL  00A2
+....................    if(butonSay==15)  //ButonSay binary olarak 4biti aþmasýn diye sýfýrlandý 
+0114:  MOVF   16,W
+0116:  SUBLW  0F
+0118:  BNZ   011C
+....................       butonSay=0; 
+011A:  CLRF   16
+....................    butonSay++; 
+011C:  INCF   16,F
+....................    while(input(pin_b1)); //Buton býrakýlana kadar bekle 
+011E:  BSF    F93.1
+0120:  BTFSC  F81.1
+0122:  BRA    011E
+....................    output_d(butonSay);  //Binary ButonSay deðerini yazdýr 
+0124:  CLRF   F95
+0126:  MOVFF  16,F8C
+....................    delay_ms(2000);  //2Saniye Bekle 
+012A:  MOVLW  08
+012C:  MOVWF  17
+012E:  MOVLW  FA
+0130:  MOVWF  18
+0132:  RCALL  00A2
+0134:  DECFSZ 17,F
+0136:  BRA    012E
+....................    output_d(0x00);  //Ledlerin hepsini söndür 
+0138:  CLRF   F95
+013A:  CLRF   F8C
+013C:  MOVLB  1
+....................    } 
+013E:  BRA    0106
+....................     
+....................        
+....................    } 
+....................  
+.................... } 
+0140:  SLEEP 
+
+Configuration Fuses:
+   Word  1: E100   XT NOPLLEN PRIMARY_ON FCMEN IESO
+   Word  2: 1C18   PUT NOBROWNOUT BORV19 NOWDT WDT128
+   Word  3: BF00   CCP2C1 PBADEN CCP3B5 HFOFST TIMER3C0 CCP2D2 MCLR
+   Word  4: 0081   STVREN NOLVP NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

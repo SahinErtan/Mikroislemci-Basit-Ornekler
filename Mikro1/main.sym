@@ -1,0 +1,72 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     main.butonsay
+006     main.@SCRATCH1
+007     @delay_ms1.P1
+F55     CCP_5
+F55     CCP_5_LOW
+F56     CCP_5_HIGH
+F58     CCP_4
+F58     CCP_4_LOW
+F59     CCP_4_HIGH
+F5E     CCP_3
+F5E     CCP_3_LOW
+F5F     CCP_3_HIGH
+F67     CCP_2
+F67     CCP_2_LOW
+F68     CCP_2_HIGH
+F78.6   C2OUT
+F79.6   C1OUT
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002A  @cinit1
+00002A  main
+00004C  @cinit2
+
+Project Directory:
+    C:\Users\ASUS\Desktop\Mikro\
+
+Project Files:
+    main.c                                                  [18-Kas-20 19:32  CRC=C80E3A2F]
+    main.h                                                  [16-Kas-20 15:15  CRC=6126E447]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\18F45K22.h [12-Kas-13 14:35  CRC=48B33F9B]
+
+Source signature=BA9B9DAC
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC18F45K22
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX32:      main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

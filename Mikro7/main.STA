@@ -1,0 +1,49 @@
+
+ROM used:   456/32768 (1%)
+            456/32768 (1%) including unused fragments
+
+            0.4 Average locations per line
+            16.3 Average locations per statement
+
+RAM used:   28/1536 (2%) at main() level
+            33/1536 (2%) worst case
+
+Stack used: 2 worst case (0 in main + 2 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   68    28 100  main.c
+   12     0   0  main.h
+ 1017     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F45K22.h
+----- -----
+ 1097    28 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     88  10    1   285  4.1  kesme
+0     68   7    5             @DIV1616
+0    154  17    0   349  2.8  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              28
+    Comments                200
+    Volume (V)              760
+    Difficulty (D)          6.8
+    Effort to implement (E) 5129
+    Time to implement (T)   5 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    108
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-07FFE   310  32308  
+
+
+

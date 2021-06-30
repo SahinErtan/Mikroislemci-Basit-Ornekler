@@ -1,0 +1,91 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     butonSay
+017     MAIN.@SCRATCH1
+018     @delay_ms1.P1
+F55     CCP_5_LOW
+F55     CCP_5
+F56     CCP_5_HIGH
+F58     CCP_4_LOW
+F58     CCP_4
+F59     CCP_4_HIGH
+F5E     CCP_3
+F5E     CCP_3_LOW
+F5F     CCP_3_HIGH
+F67     CCP_2
+F67     CCP_2_LOW
+F68     CCP_2_HIGH
+F78.6   C2OUT
+F79.6   C1OUT
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000096  hariciKesme
+0000A2  @delay_ms1
+0000CA  MAIN
+0000CA  @cinit1
+0000F0  @cinit2
+
+Project Directory:
+    C:\Users\ASUS\Desktop\Lab3 Ödev\
+
+Project Files:
+    Lab3.c                                                  [26-Kas-20 22:00  CRC=090A9518]
+    Lab3.h                                                  [26-Kas-20 14:51  CRC=6126E447]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\18F45K22.h [12-Kas-13 14:35  CRC=48B33F9B]
+
+Source signature=FB97F895
+
+Units:
+    Lab3 (main)
+
+Compiler Settings:
+    Processor:      PIC18F45K22
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Lab3.xsym
+    Errors:      Lab3.err
+    Ext Symbols: Lab3.esym
+    INHX32:      Lab3.hex
+    Symbols:     Lab3.sym
+    List:        Lab3.lst
+    Debug/COFF:  Lab3.cof
+    Project:     Lab3.ccspjt
+    Call Tree:   Lab3.tre
+    Statistics:  Lab3.STA

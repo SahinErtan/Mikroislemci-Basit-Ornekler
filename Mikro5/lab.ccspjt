@@ -1,0 +1,23 @@
+[PROJECT]
+Target=lab.hex
+Processor_Text=PIC18F45K22
+CCSVerions=5.015
+Compiler=PCH
+CCSVersion=5.015
+[Target Data]
+FileList=lab.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\ASUS\Desktop\lab]
+Type=4
+[mru-list]
+1=lab.c
+[Opened Files]
+1=lab.c
+2=lab.h
+3=
+[lab.c]
+Type=4
+[Units]
+Count=1
+1=lab (main)

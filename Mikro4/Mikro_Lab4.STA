@@ -1,0 +1,49 @@
+
+ROM used:   302/32768 (1%)
+            302/32768 (1%) including unused fragments
+
+            0.3 Average locations per line
+            17.8 Average locations per statement
+
+RAM used:   24/1536 (2%) at main() level
+            25/1536 (2%) worst case
+
+Stack used: 2 worst case (0 in main + 2 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   44    17 100  Mikro_Lab4.c
+   12     0   0  Mikro_Lab4.h
+ 1017     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\18F45K22.h
+----- -----
+ 1073    17 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     32   5    0   152  2.2  @const697
+0     56   9    1   185  3.6  timer0_kesme
+0     68  11    0   152  2.2  MAIN
+ Inline         0   152  2.2  @cinit1
+
+Program metrics:
+    Functions               4
+    Statements              17
+    Comments                180
+    Volume (V)              922
+    Difficulty (D)          10.2
+    Effort to implement (E) 9391
+    Time to implement (T)   9 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    78
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-07FFE   156  32462  
+
+
+
